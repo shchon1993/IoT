@@ -8,6 +8,7 @@
 #include "glTexture.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <signal.h>
 #include <unistd.h>
 
@@ -35,6 +36,8 @@ void sig_handler(int signo)
 
 int main( int argc, char** argv )
 {
+	char buf[100];
+
 	printf("detectnet-camera\n  args (%i):  ", argc);
 
 	for( int i=0; i < argc; i++ )
@@ -172,10 +175,12 @@ int main( int argc, char** argv )
 		if( net->Detect((float*)imgRGBA, camera->GetWidth(), camera->GetHeight(), bbCPU, &numBoundingBoxes, confCPU))
 		{
 			printf("%i bounding boxes detected\n", numBoundingBoxes);
-		
+			sprintf(buf, "curl -X PUT -d '{\"number\":%d}' 'https://test-3932e.firebaseio.com/user.json'", numBoundingBoxes);
+			system(buf);
 			int lastClass = 0;
 			int lastStart = 0;
 			
+
 			for( int n=0; n < numBoundingBoxes; n++ )
 			{
 				const int nc = confCPU[n*2+1];
@@ -196,14 +201,6 @@ int main( int argc, char** argv )
 				}
 			}
 		
-			/*if( font != NULL )
-			{
-				char str[256];
-				sprintf(str, "%05.2f%% %s", confidence * 100.0f, net->GetClassDesc(img_class));
-				
-				font->RenderOverlay((float4*)imgRGBA, (float4*)imgRGBA, camera->GetWidth(), camera->GetHeight(),
-								    str, 10, 10, make_float4(255.0f, 255.0f, 255.0f, 255.0f));
-			}*/
 			
 			if( display != NULL )
 			{
