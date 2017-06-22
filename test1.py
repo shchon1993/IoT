@@ -1,4 +1,5 @@
-import RPi.GPIO as gpio
+
+mport RPi.GPIO as gpio
 import time
 import datetime
  
@@ -34,3 +35,4 @@ try:
         
 except KeyboardInterrupt:
 gpio.cleanup()
+
