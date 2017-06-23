@@ -21,6 +21,7 @@
 
 
 #define DEFAULT_CAMERA -1	// -1 for onboard camera, or change to index of /dev/video V4L2 camera (>=0)	
+
 //(float)num/20*100
 #define SIZE 10
 int arr[SIZE]={0};
@@ -40,6 +41,7 @@ void* putData(void *data) {
 	if(num>20) num = 20;
 	sprintf(str, "\"%.1lf\"", (float)num/20*100);
 	sprintf(buf, "curl -X PATCH -d '{\"message2\":%s}' 'https://iotproject-39405.firebaseio.com/.json'", str);
+
 	system(buf);
 }	
 

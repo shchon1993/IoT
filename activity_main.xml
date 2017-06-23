@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.termfirebase.MainActivity">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="IoT 8조 매장"
+        android:textSize="6mm" />
+
+    <TextView
+        android:id="@+id/datenow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textSize="3mm" />
+
+    <TextView
+        android:id="@+id/number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/datenow"
+        android:layout_marginTop="35dp"
+        android:text="손님수:"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="8mm" />
+
+    <EditText
+        android:id="@+id/tv_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/datenow"
+        android:layout_marginTop="35dp"
+        android:layout_toRightOf="@+id/number"
+        android:textSize="5mm" />
+
+    <TextView
+        android:id="@+id/num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/datenow"
+        android:layout_marginTop="45dp"
+        android:text="%"
+        android:layout_toRightOf="@+id/tv_message"
+        android:textSize="5mm" />
+
+    <TextView
+        android:id="@+id/congestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/number"
+        android:layout_marginTop="20dp"
+        android:text="혼잡도:"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="8mm" />
+
+    <EditText
+        android:id="@+id/tv_message2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/number"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@+id/congestion"
+        android:textSize="5mm" />
+
+    <TextView
+        android:id="@+id/per"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/number"
+        android:layout_marginTop="30dp"
+        android:text="%"
+        android:layout_toRightOf="@+id/tv_message2"
+        android:textSize="5mm" />
+
+    <EditText
+        android:id="@+id/str"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/congestion"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textSize="4mm" />
+
+</RelativeLayout>
